@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/api/v1")
 public class AuthController {
+    private final long authExpirationTime;
     private final JwtGenerator generator;
     private final UserRepository repository;
     private final PasswordEncoder encoder;
 
 
     @Autowired
-    public AuthController(final JwtGenerator generator, final UserRepository repository, final PasswordEncoder encoder) {
+    public AuthController(@Value("${auth.expiration_seconds}") final long authExpirationTime, final JwtGenerator generator, final UserRepository repository, final PasswordEncoder encoder) {
+        this.authExpirationTime = authExpirationTime;
         this.generator = generator;
         this.repository = repository;
         this.encoder = encoder;

@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "auth.expiration_seconds",
+      "type": "java.lang.Long",
+      "description": "Time for expiration of JWT token."
+    }
+  ]
+}

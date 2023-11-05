@@ -23,7 +23,7 @@ public class ImageManagementController {
         this.imgurService = imgurService;
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/images/upload")
     @Async
     public @ResponseBody CompletableFuture<ResponseEntity<String>> uploadImage(@RequestPart("file") MultipartFile file) {
         try {

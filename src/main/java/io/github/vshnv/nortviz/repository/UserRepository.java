@@ -1,4 +1,4 @@
-package io.github.vshnv.nortviz;
+package io.github.vshnv.nortviz.repository;
 
 import io.github.vshnv.nortviz.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import javax.validation.ValidationException;
 
-@Component
 @Service
 @Transactional
 public class NortvizUserService implements UserService {

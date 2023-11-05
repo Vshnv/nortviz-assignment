@@ -4,6 +4,11 @@
       "name": "auth.expiration_seconds",
       "type": "java.lang.Long",
       "description": "Time for expiration of JWT token."
+    },
+    {
+      "name": "imgur.refresh_token",
+      "type": "java.lang.String",
+      "description": "Refresh Token for Imgur API."
     }
   ]
 }

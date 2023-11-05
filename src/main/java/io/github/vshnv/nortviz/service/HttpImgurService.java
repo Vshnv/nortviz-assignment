@@ -27,7 +27,7 @@ public class HttpImgurService implements ImgurService {
     @Override
     public CompletableFuture<List<ImgurImageMeta>> fetchUserImageMetas() {
         return CompletableFuture.supplyAsync(() -> {
-            final ImgurResponseContainer.ImageList response = restTemplate.postForObject(BASE_URL + "/3/account/me/images", null, ImgurResponseContainer.ImageList.class);
+            final ImgurResponseContainer.ImageList response = restTemplate.getForObject(BASE_URL + "/3/account/me/images", ImgurResponseContainer.ImageList.class);
             if (response == null || !response.isSuccess()) {
                 throw new RuntimeException("Failed to upload image");
             }
@@ -38,7 +38,7 @@ public class HttpImgurService implements ImgurService {
     @Override
     public CompletableFuture<ImgurImageMeta> fetchImageMeta(String id) {
         return CompletableFuture.supplyAsync(() -> {
-            final ImgurResponseContainer.SingleImage response = restTemplate.postForObject(BASE_URL + "/3/image/" + id, null, ImgurResponseContainer.SingleImage.class);
+            final ImgurResponseContainer.SingleImage response = restTemplate.getForObject(BASE_URL + "/3/image/" + id, ImgurResponseContainer.SingleImage.class);
             if (response == null || !response.isSuccess()) {
                 throw new RuntimeException("Failed to upload image");
             }

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 @Controller
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/images")
 public class ImageManagementController {
 
     private final ImgurService imgurService;
@@ -23,7 +23,7 @@ public class ImageManagementController {
         this.imgurService = imgurService;
     }
 
-    @PostMapping("/images/upload")
+    @PostMapping("/upload")
     @Async
     public @ResponseBody CompletableFuture<ResponseEntity<String>> uploadImage(@RequestPart("file") MultipartFile file) {
         try {

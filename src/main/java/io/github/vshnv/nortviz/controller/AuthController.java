@@ -4,7 +4,7 @@ import io.github.vshnv.nortviz.auth.jwt.JwtGenerator;
 import io.github.vshnv.nortviz.entity.AuthToken;
 import io.github.vshnv.nortviz.entity.User;
 import io.github.vshnv.nortviz.entity.request.LoginRequest;
-import io.github.vshnv.nortviz.repository.UserRepository;
+import io.github.vshnv.nortviz.entity.request.RegisterRequest;
 import io.github.vshnv.nortviz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,5 +47,19 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
         return ResponseEntity.ok(generator.generateToken(loginRequest.getUsername(), authExpirationTime));
+    }
+
+    @PostMapping("/register")
+    public @ResponseBody ResponseEntity<String> create(@RequestBody final RegisterRequest registerRequest) {
+        final User user = new User();
+        user.setUsername(registerRequest.getUsername());
+        user.setHashedPassword(encoder.encode(registerRequest.getPassword()));
+        user.setEmail(registerRequest.getEmail());
+        user.setName(registerRequest.getName());
+        if (userService.registerUser(user)) {
+            return ResponseEntity.ok("User created");
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
     }
 }

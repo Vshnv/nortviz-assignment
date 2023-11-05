@@ -9,6 +9,16 @@
       "name": "imgur.refresh_token",
       "type": "java.lang.String",
       "description": "Refresh Token for Imgur API."
+    },
+    {
+      "name": "imgur.client_id",
+      "type": "java.lang.String",
+      "description": "Client Id for Imgur API."
+    },
+    {
+      "name": "imgur.client_secret",
+      "type": "java.lang.String",
+      "description": "Client Secret for Imgur API."
     }
   ]
 }

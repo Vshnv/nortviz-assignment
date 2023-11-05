@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,6 +30,7 @@ public class BeanConfig {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setObjectMapper(new ObjectMapper().registerModule(new ParameterNamesModule(JsonCreator.Mode.PROPERTIES)));
         restTemplate.getMessageConverters().add(converter);
+        restTemplate.getMessageConverters().add(new ByteArrayHttpMessageConverter());
         return restTemplate;
     }
     @Bean(name = "plain")

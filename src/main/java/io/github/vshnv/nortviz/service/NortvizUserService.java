@@ -33,7 +33,7 @@ public class NortvizUserService implements UserService {
         try {
             userRepository.save(user);
             return true;
-        } catch (DataAccessException | ValidationException exception) {
+        } catch (RuntimeException exception) {
             return false;
         }
     }

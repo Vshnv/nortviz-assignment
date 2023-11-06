@@ -1,6 +1,6 @@
-# 
+# Nortviz Assignment
 
-Provides API that manages image uploads and serving to Imgur
+Provides API that manages image uploads (to) and serving (from) Imgur
 
 
 ## Endpoints:
@@ -60,5 +60,35 @@ Response:
 }
 ```
 Above id is the identifier for the Image
+<hr>
+
+### GET /api/v1/image/list
+Lists all images uploaded
+
+Response:
+200 OK
+```json
+[{
+    "id": String
+}]
+```
+Above id is the identifier for the Image
+<hr>
+
+<hr>
+
+### GET /api/v1/image?id=<id>
+Fetches image with given id
+
+Response:
+200 OK
+IMAGE
+<hr>
+
+### DELETE /api/v1/image?id=<id>
+Deletes image with given id
+
+Response:
+200 OK
 <hr>
 

@@ -15,6 +15,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * {@inheritDoc}
+ */
 @Service
 public class HttpImgurService implements ImgurService {
     private static final String BASE_URL = "https://api.imgur.com";

@@ -26,6 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
+        // Setup basic stateless REST-ful service
+        // Ignore login and register endpoints for jwt validation
         http.headers().frameOptions().disable()
                 .and()
                 .httpBasic().disable()

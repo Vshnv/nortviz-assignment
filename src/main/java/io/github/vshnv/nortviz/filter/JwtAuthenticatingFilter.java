@@ -24,6 +24,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * Handles JWT Authentication. Validates JWT Token and assigns Authentication claims for request
+ */
 @Qualifier("JwtFilter")
 @Component
 public final class JwtAuthenticatingFilter extends GenericFilterBean {
@@ -46,6 +49,7 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
     public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
         if (request instanceof HttpServletRequest) {
             final String authValue = ((HttpServletRequest) request).getHeader(AUTHORIZATION_HEADER);
+            // Extract JWT Token -> Fetch username claim -> load User with username -> create Spring AuthToken with user details
             tokenExtractor.extractToken(authValue)
                     .flatMap(validator::getUsernameIfValid)
                     .map(detailsService::loadUserByUsername)

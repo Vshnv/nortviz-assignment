@@ -42,9 +42,9 @@ Response:
 }
 ```
 <hr>
-All below Endpoints require Bearer Authentication
-
-i.e, include a header with key value "Authentication" and value "Bearer <Access_Token>" where <Access_Token> is token from login API
+#NOTE!!
+#All below Endpoints require Bearer Authentication
+#i.e, include a header with key value "Authentication" and value "Bearer <Access_Token>" where <Access_Token> is token from login API
 <hr>
 
 ### POST /api/v1/image/upload

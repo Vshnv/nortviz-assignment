@@ -41,10 +41,10 @@ Response:
     "expirationSeconds": Long
 }
 ```
-<hr>
-# NOTE!!
-# All below Endpoints require Bearer Authentication
-# i.e, include a header with key value "Authentication" and value "Bearer <Access_Token>" where <Access_Token> is token from login API
+<hr>\
+<h3>NOTE</h3>
+<h3>All below Endpoints require Bearer Authentication</h3>
+<h3>i.e, include a header with key value "Authentication" and value "Bearer <Access_Token>" where <Access_Token> is token from login API</h3>
 <hr>
 
 ### POST /api/v1/image/upload

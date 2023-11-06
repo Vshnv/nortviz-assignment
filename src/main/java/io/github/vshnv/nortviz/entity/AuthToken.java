@@ -5,12 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 
 public class AuthToken {
-    private final String token;
-    private final long expirationSeconds;
+    private String token;
+    private long expirationSeconds;
 
     public AuthToken(String token, long expirationSeconds) {
         this.token = token;
         this.expirationSeconds = expirationSeconds;
+    }
+
+    public AuthToken() {
+
     }
 
     @JsonProperty("token")
@@ -21,6 +25,14 @@ public class AuthToken {
     @JsonProperty("secondsToExpiration")
     public long getExpirationSeconds() {
         return expirationSeconds;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public void setExpirationSeconds(long expirationSeconds) {
+        this.expirationSeconds = expirationSeconds;
     }
 
     @Override
